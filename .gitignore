@@ -7,7 +7,6 @@ npm-debug.*
 *.key
 *.mobileprovision
 *.orig.*
-lib
 *.tgz
 web-build/
 examples/node_modules
