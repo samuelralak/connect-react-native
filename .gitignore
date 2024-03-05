@@ -17,3 +17,4 @@ examples/.expo-shared
 # macOS
 .DS_Store
 *.log
+.idea/

@@ -19,6 +19,9 @@ const MonoConnect: React.FC<MonoConnectProps> = (props) => {
     return createUrl(qs);
   }, [otherConfig.reauth_token, publicKey, otherConfig.reference])
 
+  const sourceURL = connect_url.split(" ")[0]
+  console.log({sourceURL})
+
   function handleMessage(message: string) {
     const { setOpenWidget } = otherConfig;
     const response: WebviewMessage = JSON.parse(message);
@@ -100,7 +103,7 @@ const MonoConnect: React.FC<MonoConnectProps> = (props) => {
         <WebView
           style={{ flex: 1, borderTopLeftRadius: 10, borderTopRightRadius: 10 }}
           injectedJavaScript={INJECTED_JAVASCRIPT}
-          source={{ uri: connect_url }}
+          source={{ uri: sourceURL }}
           onMessage={(e: any) => handleMessage(e.nativeEvent.data)}
           startInLoadingState={true}
           renderLoading={() => <View style={{display: "flex", justifyContent: "center", alignItems: "center", backgroundColor: "white", height: "100%"}}><ActivityIndicator size="small" color="#182CD1"/></View>}
